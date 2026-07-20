@@ -7,12 +7,6 @@
   version="3.0">
   
   <xsl:mode name="adjust-graphic-href" on-no-match="shallow-copy"/>
-  
-<!--  <xsl:param name="collection-uri" as="xs:string?" select="()">-->
-    <!-- for standalone invocation with a Saxon collection catalog --> 
-  <!--</xsl:param>-->
-
-<!--  <xsl:global-context-item as="document-node(element(*))"/>-->
 
   <xsl:param name="manifest" as="document-node(element(c:archive))?"/>
 
@@ -22,8 +16,6 @@
       select="$manifest/c:archive/c:entry[starts-with(@content-type, 'image/')]
                                          [replace(replace(@name-old, '^.+/', ''), '\..+$', '') = $old-href]"/>
     <xsl:attribute name="{name()}" select="$corresponding-entry-candidates[1]/@name"/>
-<!--    <xsl:message select="'OLD HREF ' || $old-href || ' Exists-mf: ' || exists($manifest)"/>
-    <xsl:attribute name="{name()}" select="'hurz'"/>-->
   </xsl:template>
 
 </xsl:stylesheet>

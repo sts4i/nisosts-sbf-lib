@@ -25,7 +25,7 @@
                     'mode': xs:QName('adjust-graphic-href')}}}"/>
 <!--  <p:identity message="{serialize($params, map{'method': 'adaptive'})}"></p:identity>-->
   <p:run name="run-fix">
-    <p:with-input href="/mnt/c/Users/gerrit/DIN/sbf-frontend/nisosts-sbf-lib/schematron/xproc-fixes/zip-graphic-names.xpl"/>
+    <p:with-input href="zip-graphic-names.xpl"/>
     <p:run-input port="manifest" pipe="result@enrich-archive-manifest" primary="true"/>
     <p:run-input port="zip-contents" pipe="contents@enrich-archive-manifest"/>
     <p:run-option name="parameters" select="$params" />

@@ -17,7 +17,7 @@
   <p:output port="result-manifest" content-types="xml" primary="true" pipe="result@fix-manifest"/>
 <!--  <p:output port="result-zip-contents" content-types="any" sequence="true" pipe="zip-contents@zip-graphic-names"/>-->
   <p:output port="result-zip-contents" content-types="any" sequence="true" pipe="result@fix-base-uris-and-xmls"/>
-  <p:option name="parameters"/><!-- as="map(*) -->
+  <p:option name="parameters" as="map(*)"/>
   
   <p:variable name="xslts" as="map(*)" select="map:get($parameters, 'xslts')">
     <p:documentation>A map with namespace URIs as key and another map as each value. This map has the keys 'href' 

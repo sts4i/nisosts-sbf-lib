@@ -344,7 +344,8 @@
     </rule>
     <rule id="language-available" context="front | adoption-front | body | back">
       <assert test="isosts:lang(.)" role="warning" id="body-language-available">The content language cannot be
-        determined.</assert>
+        determined.
+      </assert>
     </rule>
      <rule id="no_content-language_rule1" context="(front | adoption-front)/*[ends-with(name(), '-meta')]">
       <report id="no_content-language_r1" role="error" test="not(content-language)">
