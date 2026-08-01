@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"
+  xmlns:c="http://www.w3.org/ns/xproc-step"
+  xmlns:sbf="http://transpect.io/schematron-batch-fix"
+  xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
+  <namespace ns="http://www.w3.org/ns/xproc-step">
+    <validate schema="http://niso-sts.org/sbf-lib/schematron/xproc-fix-sample.sch"/>
+  </namespace>
+  <namespace ns="">
+    <validate schema="http://niso-sts.org/sbf-lib/schematron/NISOSTS_lib.sch"/>
+    <c:param-set>
+      <c:param name="target-niso-version" value="1.2"/>
+    </c:param-set>
+    <output:serialization-parameters>
+      <output:indent value="yes"/>
+    </output:serialization-parameters>
+    <sbf:models>
+      <sbf:model href="http://www.le-tex.de/resource/schema/hub/1.2/hub.rng"
+        schematypens="http://relaxng.org/ns/structure/1.0"/>
+    </sbf:models>
+  </namespace>
+</rules>
