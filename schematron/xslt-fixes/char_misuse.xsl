@@ -5,8 +5,8 @@
       xmlns:mml="http://www.w3.org/1998/Math/MathML"
       exclude-result-prefixes="sc xs isosts" version="2.0">
       
-      <xsl:import href="http://niso-sts.org/sts4i-tools/schematron/xslt-fixes/identity.xsl"/>
-      <xsl:import href="http://niso-sts.org/sts4i-tools/schematron/NISOSTS_lib.xsl"/>
+      <xsl:import href="http://niso-sts.org/sbf-lib/schematron/xslt-fixes/identity.xsl"/>
+      <xsl:import href="http://niso-sts.org/sbf-lib/schematron/NISOSTS_lib.xsl"/>
     
     
       <xsl:template match="text()[matches(.,'&#414;')]" mode="LATINSMALLLETTERNWITHLONGRIGHTLEG"><xsl:value-of select="replace(., '&#414;', '&#951;')"/></xsl:template>

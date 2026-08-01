@@ -6,7 +6,7 @@
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         queryBinding="xslt2"
         xml:lang="en">
-<!--   <xsl:import href="http://niso-sts.org/sts4i-tools/schematron/NISOSTS_lib.xsl"/>-->
+<!--   <xsl:import href="http://niso-sts.org/sbf-lib/schematron/NISOSTS_lib.xsl"/>-->
    <ns uri="http://www.iso.org/ns/isosts" prefix="isosts"/>
    <let name="uni-chars" value="isosts:uni-chars(/*)"/>
    <pattern id="LATINSMALLLETTERNWITHLONGRIGHTLEG">

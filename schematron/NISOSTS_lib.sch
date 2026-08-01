@@ -21,13 +21,14 @@
   <!-- Set the allow-foreign parameter to 'true' when invoking the default ISO Schematron
     implementation -->
 
-  <sbf:extends href="http://niso-sts.org/sts4i-tools/schematron/unicode.sch"/>
+  <sbf:extends href="http://niso-sts.org/sbf-lib/schematron/unicode.sch"/>
 
   <xsl:import href="http://transpect.io/xslt-util/num/xsl/num.xsl"/>
   <xsl:param name="target-niso-version"/>
 
   <ns uri="http://www.iso.org/ns/isosts" prefix="isosts"/>
   <ns prefix="tr" uri="http://transpect.io"/>
+  <ns prefix="tr-hex-private" uri="http://transpect.io/xslt-util/hex/private"/>
   <ns prefix="tbx" uri="urn:iso:std:iso:30042:ed-1"/>
   <ns prefix="c" uri="http://www.w3.org/ns/xproc-step"/>
   <ns uri="http://www.w3.org/1998/Math/MathML" prefix="mml"/>

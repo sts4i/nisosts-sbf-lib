@@ -8,7 +8,7 @@
   xmlns:c="http://www.w3.org/ns/xproc-step" 
   version="3.1" name="zip-graphic-names"
   type="stssbf:zip-graphic-names">
-  <p:import href="../../../sbf/find-files/enrich-archive-manifest.xpl"/>
+  <p:import href="http://transpect.io/sbf/find-files/enrich-archive-manifest.xpl"/>
   <p:input port="manifest" content-types="xml" primary="true">
     <p:documentation>A ZIP manifest (c:archive) where each c:entry of XML files is enriched with a namespace-uri attribute
       that contains the top-level element’s namespace URI (that may be the string '#none' for no namespace).</p:documentation>
