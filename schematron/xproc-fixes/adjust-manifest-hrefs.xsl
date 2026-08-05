@@ -3,7 +3,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:c="http://www.w3.org/ns/xproc-step" 
   xmlns:saxon="http://saxon.sf.net/"
-  exclude-result-prefixes="xs c"
+  exclude-result-prefixes="xs c saxon"
   version="3.0">
   
   <xsl:mode name="adjust-manifest-href" on-no-match="shallow-copy"/>
@@ -14,9 +14,9 @@
     <xsl:attribute name="{name()}-old" select="."/>
   </xsl:template>
   
-  <xsl:template match="c:entry" mode="#all">
+  <!--<xsl:template match="c:entry" mode="#all">
     <xsl:message select="'content-type: ' || @content-type || ' Name: ' || @name || ' Current mode name: ' || saxon:current-mode-name()"/>
     <xsl:next-match/>
-  </xsl:template>
+  </xsl:template>-->
 
 </xsl:stylesheet>

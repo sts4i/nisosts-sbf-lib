@@ -46,7 +46,13 @@
       <assert test="@xlink:href = /c:archive/c:entry/@name" id="image_file_names_a1" role="warning"><name/> attribute
         xlink:href points to '<xsl:value-of select="@xlink:href"/>'. The archive does not contain an image file with this
         exact path/filename.
-        <sbf:xproc-fix href="xproc-fixes/zip-graphic-names.xpl" operates-on="expanded-archive-manifest"/>
+        <sbf:xproc-fix href="http://niso-sts.org/sbf-lib/schematron/xproc-fixes/zip-graphic-names.xpl" 
+          operates-on="expanded-archive-manifest-and-contents">
+          <sbf:xsl-uri namespace-uri="http://www.w3.org/ns/xproc-step" mode="adjust-manifest-href" 
+            href="http://niso-sts.org/sbf-lib/schematron/xproc-fixes/adjust-manifest-hrefs.xsl"/>
+          <sbf:xsl-uri namespace-uri="" mode="adjust-graphic-href" 
+            href="http://niso-sts.org/sbf-lib/schematron/xproc-fixes/adjust-graphic-hrefs.xsl"/>
+        </sbf:xproc-fix>
       </assert>
     </rule>
   </pattern>

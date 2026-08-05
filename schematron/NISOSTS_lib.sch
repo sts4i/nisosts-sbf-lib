@@ -1134,6 +1134,7 @@
   </pattern>
   
   
+  <!-- This will be done by an XProc fix 
   <pattern id="media" sbf:product-version-regex="^[PE]E">
     <rule id="media_folder_missing_rule1" context="/*">
       <let name="base" value="concat('^',replace(base-uri(/*), '^.*/', ''), '$')"/>
@@ -1195,6 +1196,7 @@
       </assert>
     </rule>
   </pattern>
+  -->
   
   
   <pattern id="def-list_title_in_def-head">
