@@ -12,12 +12,19 @@
         <c:param name="target-niso-version" value="1.2"/>
       </c:param-set>
     </validate>
-    <output:serialization-parameters>
+    <sbf:rendering-pipeline href="http://customers.le-tex.de/DIN_Solutions/html-renderer/nisosts2html.xpl"
+      local-names="adoption standard"><!-- maybe use context/@path information in validate instead, if present? --> 
+      <c:param-set>
+        <c:param name="expand-css" value="no"/>
+        <c:param name="use-katex" value="yes"/>
+      </c:param-set>
+    </sbf:rendering-pipeline>
+    <!--<output:serialization-parameters>
       <output:indent value="yes"/>
-    </output:serialization-parameters>
-    <sbf:models>
+    </output:serialization-parameters>-->
+    <!--<sbf:models>
       <sbf:model href="http://www.le-tex.de/resource/schema/hub/1.2/hub.rng"
         schematypens="http://relaxng.org/ns/structure/1.0"/>
-    </sbf:models>
+    </sbf:models>-->
   </namespace>
 </rules>

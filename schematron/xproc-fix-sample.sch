@@ -36,12 +36,6 @@
   <xsl:include href="NISOSTS_lib.xsl"/>
   
   <pattern id="image_file_names">
-    <!--<rule id="image_file_names_rule1" context="c:entry[starts-with(@content-type, 'image/')]">
-      <assert test="@name = isosts:relative-image-file-path(@xlink:href)" id="legacy-meta_a1" role="error">Please use std-meta since <name/> will be
-        deprecated in future NISO STS versions. <sbf:xsl-fix href="xslt-fixes/nesting.xsl" mode="legacy-meta"
-          depends-on="deprecated_doc-ident_r1 text_in_nat-meta_r1"/>
-      </assert>
-    </rule>-->
     <rule id="image_file_names_rule2" context="graphic[@xlink:href]">
       <assert test="@xlink:href = /c:archive/c:entry/@name" id="image_file_names_a1" role="warning"><name/> attribute
         xlink:href points to '<xsl:value-of select="@xlink:href"/>'. The archive does not contain an image file with this
