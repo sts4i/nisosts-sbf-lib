@@ -23,7 +23,6 @@
                   '#none': 
                 map{'href': '/mnt/c/Users/gerrit/DIN/sbf-frontend/nisosts-sbf-lib/schematron/xproc-fixes/adjust-graphic-hrefs.xsl',
                     'mode': xs:QName('adjust-graphic-href')}}}"/>
-<!--  <p:identity message="{serialize($params, map{'method': 'adaptive'})}"></p:identity>-->
   <p:run name="run-fix">
     <p:with-input href="zip-graphic-names.xpl"/>
     <p:run-input port="manifest" pipe="result@enrich-archive-manifest" primary="true"/>
@@ -32,8 +31,7 @@
     <p:output port="result-manifest" primary="true"/>
     <p:output port="result-zip-contents" sequence="true"/>
   </p:run>
-  <p:delete match="@name-old | @cx:*" message="{serialize(., map{'method': 'adaptive'})}"
-    name="delete-unsupported-manifest-attributes"/>
+  <p:delete match="@name-old | @cx:*" name="delete-unsupported-manifest-attributes"/>
   <p:sink name="sink0"/>
   <p:archive name="repackage">
     <p:with-input port="source" pipe="result-zip-contents@run-fix"/>

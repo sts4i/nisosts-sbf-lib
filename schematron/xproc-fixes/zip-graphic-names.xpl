@@ -43,17 +43,6 @@
     </p:xslt>
   </p:if>
 
-
-  <p:identity message="TOP {/*/name()}">
-    <p:with-input pipe="contents@zip-graphic-names"></p:with-input>
-  </p:identity>
-  
-  <p:count/>
-  
-  <p:identity message="SIZE {.}">
-    <p:with-input pipe="contents@zip-graphic-names"></p:with-input>
-  </p:identity>
-  
   <p:sink name="sink0"/>
   <p:for-each name="fix-xmls">
     <p:output port="result" primary="true"/>
@@ -63,10 +52,10 @@
       pipe="result@transform-manifest"/>
     <p:variable name="xsl-for-namespace" as="element(sbf:xsl-uri)?" pipe="this-fix-from-svrl@zip-graphic-names"
       select="/sbf:xproc-fix/sbf:xsl-uri[@namespace-uri = $namespace-uri][1]"/>
-    <p:identity name="current-doc" message="exists xsl-uri? {exists($xsl-for-namespace/@href)}"/>
+    <p:identity name="current-doc"/>
     <p:choose name="for-xml-input">
       <p:when test="exists($namespace-uri) and exists($xsl-for-namespace/@href)">
-        <p:load name="load-xslt" href="{$xsl-for-namespace/@href}" message="LOAD {$xsl-for-namespace/@href}"/>
+        <p:load name="load-xslt" href="{$xsl-for-namespace/@href}"/>
         <p:sink name="sink2"/>
         <p:xslt name="fix-xml">
           <p:with-input port="stylesheet" pipe="result@load-xslt"/>

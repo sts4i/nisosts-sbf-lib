@@ -9,14 +9,8 @@
   <xsl:mode name="adjust-manifest-href" on-no-match="shallow-copy"/>
   
   <xsl:template match="c:entry[@content-type = 'image/png']/@name" mode="adjust-manifest-href">
-    <xsl:message select="'name: ' || ."/>
     <xsl:attribute name="{name()}" select="'media/' || replace(., '^.+/', '')"/>
     <xsl:attribute name="{name()}-old" select="."/>
   </xsl:template>
   
-  <!--<xsl:template match="c:entry" mode="#all">
-    <xsl:message select="'content-type: ' || @content-type || ' Name: ' || @name || ' Current mode name: ' || saxon:current-mode-name()"/>
-    <xsl:next-match/>
-  </xsl:template>-->
-
 </xsl:stylesheet>
