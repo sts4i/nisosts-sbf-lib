@@ -429,7 +429,8 @@
 
 <xsl:template match="table-wrap-foot/p" mode="table-wrap-foot_p_to_legend"/>
 
-<xsl:template match="table-wrap[table/(tfoot/tr,tbody/tr, tr)[last()][isosts:contains-legend-title(.)]]" 
+<xsl:template match="table-wrap[table/(tfoot/tr,tbody/tr, tr)[last()][isosts:contains-legend-title(.)]]
+                               [count(table/(tfoot/tr,tbody/tr, tr)[isosts:contains-legend-title(.)]) lt 2]" 
   mode="tr_to_legend">
     <xsl:variable name="before-legend" as="element(*)*" select="editing-instruction | object-id | label | caption"/>
     <xsl:variable name="last-row" select="table/(tfoot/tr,tbody/tr, tr)[last()][isosts:contains-legend-title(.)]" as="element()*"/>
@@ -439,7 +440,7 @@
         <title>
           <xsl:value-of select="$last-row/descendant::p[1]"/>
         </title>
-        <xsl:apply-templates select="$last-row/td/p[not(position() = 1)]" mode="#current"/>
+        <xsl:apply-templates select="$last-row/descendant::p[not(position() = 1)][not(ancestor::p[ancestor::tr intersect $last-row])]" mode="#current"/>
       </legend>
       <xsl:apply-templates select="node() except $before-legend" mode="#current">
         <xsl:with-param name="remove-by-id" select="$last-row/generate-id()" tunnel="yes"/>
