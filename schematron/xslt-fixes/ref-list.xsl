@@ -47,16 +47,25 @@
   
   <xsl:template match="back/ref-list/title" mode="put-into-app"/>
 <!--  <xsl:template match="ref-list/@content-type['bibl']" mode="put-into-app"/>-->
-  <xsl:template match="ref-list/title" mode="rmv-ref-list-title"/>
+  <xsl:template match="ref-list[parent::app or parent::app-group]/title" mode="rmv-ref-list-title"/>
 <!--  <xsl:template match="ref-list/@content-type['bibl']" mode="rmv-ref-list-title"/>-->
 
 <!-- ref-list als Kind von app in einer app-group, aber @content-type fehlt an app  -->
   
   <xsl:template match="back/app-group/app[child::ref-list][not(@content-type = 'bibl')]" mode="content-type-for-app">
     <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:attribute name="content-type">bibl</xsl:attribute>  
-        <xsl:apply-templates select="ref-list/title" mode="#current"/>
-        <xsl:apply-templates select="ref-list" mode="rmv-ref-list-title"/>
+        <xsl:choose>
+        <xsl:when test="title[normalize-space()]">
+          <xsl:apply-templates mode="#current"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="editing-instruction | sec-meta | label | annex-type" mode="#current"/>
+          <xsl:apply-templates select="ref-list/title" mode="#current"/>
+          <xsl:apply-templates select="* except (editing-instruction | sec-meta | label | annex-type | title)" mode="rmv-ref-list-title"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:copy>
   </xsl:template>
 

@@ -80,10 +80,11 @@
   </xsl:template>
   
   
-   <xsl:template match="app/label" mode="label">
+   <xsl:template match="app/label[matches(., concat($annex_label_regEx,replace($annex_label_regEx, '\^', '')), 'i')]" mode="label">
      <xsl:copy>
-   <xsl:value-of select="replace(., $annex_label_regEx, '')"/>
-       </xsl:copy>
+       <xsl:apply-templates select="@*" mode="#current"/>
+       <xsl:value-of select="replace(., $annex_label_regEx, '')"/>
+     </xsl:copy>
   </xsl:template>
   
   
