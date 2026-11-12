@@ -11,7 +11,7 @@
 
   <xsl:param name="manifest" as="document-node(element(c:archive))?"/>
 
-  <xsl:template match="graphic/@xlink:href" mode="adjust-graphic-href">
+  <xsl:template match="graphic/@xlink:href | inline-graphic/@xlink:href" mode="adjust-graphic-href">
     <xsl:variable name="old-href" as="xs:string" select="string(.)"/>
     <xsl:variable name="corresponding-entry-candidates" as="element(c:entry)*" 
       select="$manifest/c:archive/c:entry[starts-with(@content-type, 'image/')]

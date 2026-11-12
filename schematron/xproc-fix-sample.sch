@@ -36,7 +36,7 @@
   <xsl:include href="NISOSTS_lib.xsl"/>
   
   <pattern id="image_file_names">
-    <rule id="image_file_names_rule2" context="graphic[@xlink:href]">
+    <rule id="image_file_names_rule2" context="graphic[@xlink:href] | inline-graphic[@xlink:href]">
       <assert test="@xlink:href = /c:archive/c:entry/@name" id="image_file_names_a1" role="warning"><name/> attribute
         xlink:href points to '<xsl:value-of select="@xlink:href"/>'. The archive does not contain an image file with this
         exact path/filename.
