@@ -1,4 +1,4 @@
-# nisosts-sbf-lib – Schematron Batch Fix library for NISO STS
+# nisosts-sbf-lib – Schematron Batch Fix library for NISO STS 
 
 This repository contains the Schematron files and XSLT fixes of [sts4i-tools](https://github.com/sts4i/sts4i-tools/tree/master/schematron). It will add XProc fixes (for example, for renaming image files in a ZIP archive). 
 
